@@ -1,0 +1,1110 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://dublincore.org/documents/2008/08/04/dc-html/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+    <meta name="creator" content="rfcmarkup version 1.104" />
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<meta name="DC.Identifier" content="urn:ietf:id:maler-oauth-umatrust" />
+<meta name="DC.Description.Abstract" content="User-Managed Access (UMA) is a profile of OAuth 2.0. UMA defines how" />
+<meta name="DC.Creator" content="Maler, Eve" />
+<meta name="DC.Creator" content="Hardjono, Thomas" />
+<meta name="DC.Date.Issued" content="2013-07-30" />
+<meta name="DC.Title" content="Binding Obligations on User-Managed Access (UMA) Participants" />
+
+    <link rel="icon" href="/images/id.png" type="image/png" />
+    <link rel="shortcut icon" href="/images/id.png" type="image/png" />
+    <title>draft-maler-oauth-umatrust-01 - Binding Obligations on User-Managed Access (UMA) Participants</title>
+    
+    
+    <style type="text/css">
+	body {
+	    margin: 0px 8px;
+            font-size: 1em;
+	}
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	    font-weight: bold;
+            line-height: 0pt;
+            display: inline;
+            white-space: pre;
+            font-family: monospace;
+            font-size: 1em;
+	    font-weight: bold;
+        }
+        pre {
+            font-size: 1em;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+	.pre {
+	    white-space: pre;
+	    font-family: monospace;
+	}
+	.header{
+	    font-weight: bold;
+	}
+        .newpage {
+            page-break-before: always;
+        }
+        .invisible {
+            text-decoration: none;
+            color: white;
+        }
+        a.selflink {
+          color: black;
+          text-decoration: none;
+        }
+        @media print {
+            body {
+                font-family: monospace;
+                font-size: 10.5pt;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1em;
+            }
+        
+            a:link, a:visited {
+                color: inherit;
+                text-decoration: none;
+            }
+            .noprint {
+                display: none;
+            }
+        }
+	@media screen {
+	    .grey, .grey a:link, .grey a:visited {
+		color: #777;
+	    }
+            .docinfo {
+                background-color: #EEE;
+            }
+            .top {
+                border-top: 7px solid #EEE;
+            }
+            .bgwhite  { background-color: white; }
+            .bgred    { background-color: #F44; }
+            .bggrey   { background-color: #666; }
+            .bgbrown  { background-color: #840; }            
+            .bgorange { background-color: #FA0; }
+            .bgyellow { background-color: #EE0; }
+            .bgmagenta{ background-color: #F4F; }
+            .bgblue   { background-color: #66F; }
+            .bgcyan   { background-color: #4DD; }
+            .bggreen  { background-color: #4F4; }
+
+            .legend   { font-size: 90%; }
+            .cplate   { font-size: 70%; border: solid grey 1px; }
+	}
+    </style>
+    <!--[if IE]>
+    <style>
+    body {
+       font-size: 13px;
+       margin: 10px 10px;
+    }
+    </style>
+    <![endif]-->
+
+    <script type="text/javascript"><!--
+    function addHeaderTags() {
+	var spans = document.getElementsByTagName("span");
+	for (var i=0; i < spans.length; i++) {
+	    var elem = spans[i];
+	    if (elem) {
+		var level = elem.getAttribute("class");
+                if (level == "h1" || level == "h2" || level == "h3" || level == "h4" || level == "h5" || level == "h6") {
+                    elem.innerHTML = "<"+level+">"+elem.innerHTML+"</"+level+">";		
+                }
+	    }
+	}
+    }
+    var legend_html = "Colour legend:<br />      <table>         <tr><td>Unknown:</td>                   <td><span class='cplate bgwhite'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Draft:</td>                     <td><span class='cplate bgred'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Informational:</td>             <td><span class='cplate bgorange'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Experimental:</td>              <td><span class='cplate bgyellow'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Best Common Practice:</td>      <td><span class='cplate bgmagenta'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Proposed Standard:</td>         <td><span class='cplate bgblue'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Draft Standard (old designation):</td> <td><span class='cplate bgcyan'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Internet Standard:</td>         <td><span class='cplate bggreen'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Historic:</td>                  <td><span class='cplate bggrey'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>         <tr><td>Obsolete:</td>                  <td><span class='cplate bgbrown'>&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>     </table>";
+    function showElem(id) {
+        var elem = document.getElementById(id);
+        elem.innerHTML = eval(id+"_html");
+        elem.style.visibility='visible';
+    }
+    function hideElem(id) {
+        var elem = document.getElementById(id);
+        elem.style.visibility='hidden';        
+        elem.innerHTML = "";
+    }
+    // -->
+    </script>
+</head>
+<body onload="addHeaderTags()">
+   <div style="height: 13px;">
+      <div onmouseover="this.style.cursor='pointer';"
+         onclick="showElem('legend');"
+         onmouseout="hideElem('legend')"
+	 style="height: 6px; position: absolute;"
+         class="pre noprint docinfo bgred"
+         title="Click for colour legend." >                                                                        </div>
+      <div id="legend"
+           class="docinfo noprint pre legend"
+           style="position:absolute; top: 4px; left: 4ex; visibility:hidden; background-color: white; padding: 4px 9px 5px 7px; border: solid #345 1px; "
+           onmouseover="showElem('legend');"
+           onmouseout="hideElem('legend');">
+      </div>
+   </div>
+<span class="pre noprint docinfo top">[<a href="../html/" title="Document search and retrieval page">Docs</a>] [<a href="http://tools.ietf.org/id/draft-maler-oauth-umatrust-01.txt" title="Plaintext version of this document">txt</a>|<a href="/pdf/draft-maler-oauth-umatrust-01.txt" title="PDF version of this document">pdf</a>] [<a href='https://datatracker.ietf.org/doc/draft-maler-oauth-umatrust' title='IESG Datatracker information for this document'>Tracker</a>] [<a href="mailto:draft-maler-oauth-umatrust@tools.ietf.org?subject=draft-maler-oauth-umatrust%20" title="Send email to the document authors">Email</a>] [<a href="/rfcdiff?difftype=--hwdiff&amp;url2=draft-maler-oauth-umatrust-01.txt" title="Inline diff (wdiff)">Diff1</a>] [<a href="/rfcdiff?url2=draft-maler-oauth-umatrust-01.txt" title="Side-by-side diff">Diff2</a>] [<a href="/idnits?url=http://tools.ietf.org/id/draft-maler-oauth-umatrust-01.txt" title="Run an idnits check of this document">Nits</a>]               </span><br />
+<span class="pre noprint docinfo">                                                                        </span><br />
+<span class="pre noprint docinfo">Versions: <a href="./draft-maler-oauth-umatrust-00">00</a> <a href="./draft-maler-oauth-umatrust-01">01</a>                                                         </span><br />
+<span class="pre noprint docinfo">                                                                        </span><br />
+<pre>
+Network Working Group                                      E. Maler, Ed.
+Internet-Draft                                               XMLgrrl.com
+Intended status: Standards Track                             T. Hardjono
+Expires: January 31, 2014                                            MIT
+                                                           July 30, 2013
+
+
+     <span class="h1">Binding Obligations on User-Managed Access (UMA) Participants</span>
+                     <span class="h1">draft-maler-oauth-umatrust-01</span>
+
+Abstract
+
+   User-Managed Access (UMA) is a profile of OAuth 2.0.  UMA defines how
+   resource owners can control protected-resource access by clients
+   operated by arbitrary requesting parties, where the resources reside
+   on any number of resource servers, and where a centralized
+   authorization server governs access based on resource owner policy.
+   This document provides a contractual framework that defines the
+   minimum obligations of parties that operate and use UMA-conforming
+   software programs and services.  The goal of this framework is to
+   support end-to-end legal enforceability of the terms and conditions
+   of access sharing relationships between authorizing and requesting
+   sides that use UMA.  The audience for this document includes
+   technologists, legal professionals, and operators of UMA-conforming
+   services.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of <a href="./bcp78">BCP 78</a> and <a href="./bcp79">BCP 79</a>.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at <a href="http://datatracker.ietf.org/drafts/current/">http://datatracker.ietf.org/drafts/current/</a>.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on January 31, 2014.
+
+
+
+
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 1]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-2" id="page-2" href="#page-2" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+Copyright Notice
+
+   Copyright (c) 2013 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to <a href="./bcp78">BCP 78</a> and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (<a href="http://trustee.ietf.org/license-info">http://trustee.ietf.org/license-info</a>) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in <a href="#section-4">Section 4</a>.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+Table of Contents
+
+   <a href="#section-1">1</a>.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   <a href="#page-3">3</a>
+     <a href="#section-1.1">1.1</a>.  Sample Use Cases for Sharing Access to Resources  . . . .   <a href="#page-3">3</a>
+     <a href="#section-1.2">1.2</a>.  How to Use the Contractual Framework  . . . . . . . . . .   <a href="#page-5">5</a>
+     1.3.  Obligations Not in the Scope of the Contractual Framework   6
+   <a href="#section-2">2</a>.  Binding Obligations on UMA Participants . . . . . . . . . . .   <a href="#page-7">7</a>
+     <a href="#section-2.1">2.1</a>.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   <a href="#page-7">7</a>
+       <a href="#section-2.1.1">2.1.1</a>.  Terms . . . . . . . . . . . . . . . . . . . . . . . .   <a href="#page-7">7</a>
+       <a href="#section-2.1.2">2.1.2</a>.  Abbreviations . . . . . . . . . . . . . . . . . . . .  <a href="#page-10">10</a>
+     <a href="#section-2.2">2.2</a>.  Obligations of the Requesting Party . . . . . . . . . . .  <a href="#page-10">10</a>
+       2.2.1.  Requesting Party-Authorizing Party: Adhere-to-Terms .  10
+       2.2.2.  Requesting Party-Authorizing Party: Make-Factual-
+               Representations . . . . . . . . . . . . . . . . . . .  <a href="#page-11">11</a>
+       2.2.3.  Requesting Party-Authorization Server Operator:
+               Supply-Truthful-Claims  . . . . . . . . . . . . . . .  <a href="#page-11">11</a>
+       2.2.4.  Requesting Party-Resource Server Operator: Is-
+               Legitimate-Bearer . . . . . . . . . . . . . . . . . .  <a href="#page-12">12</a>
+     <a href="#section-2.3">2.3</a>.  Obligations of the Resource Server Operator . . . . . . .  <a href="#page-12">12</a>
+       2.3.1.  Resource Server Operator-Authorizing Party: Delegate-
+               Protection  . . . . . . . . . . . . . . . . . . . . .  <a href="#page-12">12</a>
+       2.3.2.  Resource Server Operator-Authorization Server
+               Operator: Register-Accurately-and-Timely  . . . . . .  <a href="#page-13">13</a>
+       2.3.3.  Resource Server Operator-Authorization Server
+               Operator: Respect-Permissions . . . . . . . . . . . .  <a href="#page-13">13</a>
+       2.3.4.  Resource Server Operator-Requesting Party: Give-
+               Accurate-Access . . . . . . . . . . . . . . . . . . .  <a href="#page-13">13</a>
+     <a href="#section-2.4">2.4</a>.  Obligations of the Authorization Server Operator  . . . .  <a href="#page-14">14</a>
+       2.4.1.  Authorization Server Operator-Authorizing Party:
+               Follow-Policies-Accurately-and-Timely . . . . . . . .  <a href="#page-14">14</a>
+       2.4.2.  Authorization Server Operator-Resource Server
+               Operator: Follow-Policies-Accurately-and-Timely . . .  <a href="#page-14">14</a>
+       2.4.3.  Authorization Server Operator-Requesting Party:
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 2]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-3" id="page-3" href="#page-3" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+               Request-Limited-Claims  . . . . . . . . . . . . . . .  <a href="#page-15">15</a>
+     <a href="#section-2.5">2.5</a>.  Obligations of the Authorizing Party  . . . . . . . . . .  <a href="#page-15">15</a>
+       2.5.1.  Authorizing Party-Requesting Party: Adhere-to-Terms .  15
+       2.5.2.  Authorizing Party-Authorization Server Operator:
+               Introduce-Resource-Server . . . . . . . . . . . . . .  <a href="#page-15">15</a>
+       2.5.3.  Authorizing Party-Resource Server Operator:
+               Introduce-Authorization-Server  . . . . . . . . . . .  <a href="#page-16">16</a>
+   <a href="#section-3">3</a>.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  <a href="#page-16">16</a>
+   <a href="#section-4">4</a>.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  <a href="#page-16">16</a>
+     <a href="#section-4.1">4.1</a>.  Normative References  . . . . . . . . . . . . . . . . . .  <a href="#page-16">16</a>
+     <a href="#section-4.2">4.2</a>.  Informative References  . . . . . . . . . . . . . . . . .  <a href="#page-17">17</a>
+   <a href="#appendix-A">Appendix A</a>.  Document History . . . . . . . . . . . . . . . . . .  <a href="#page-17">17</a>
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  <a href="#page-17">17</a>
+
+<span class="h2"><a class="selflink" name="section-1" href="#section-1">1</a>.  Introduction</span>
+
+   User-Managed Access (UMA) [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>] is a profile of OAuth 2.0.  UMA
+   defines how resource owners can control protected-resource access by
+   clients operated by arbitrary requesting parties, where the resources
+   reside on any number of resource servers, and where a centralized
+   authorization server governs access based on resource owner policy.
+   This document provides a contractual framework that defines the
+   minimum obligations of parties that operate and use UMA-conforming
+   software programs and services.  The goal of this framework is to
+   support end-to-end legal enforceability of the terms and conditions
+   of access sharing relationships between authorizing and requesting
+   sides that use UMA.  The audience for this document includes
+   technologists, legal professionals, and operators of UMA-conforming
+   services.
+
+   Capitalized terms and abbreviations used in this document are defined
+   in <a href="#section-2.1">Section 2.1</a> because they form a normative part of the framework
+   defined in <a href="#section-2">Section 2</a>.  Readers are strongly encouraged to review
+   these definitions before reading the rest of the introduction.
+
+<span class="h3"><a class="selflink" name="section-1.1" href="#section-1.1">1.1</a>.  Sample Use Cases for Sharing Access to Resources</span>
+
+   UMA makes possible a loosely coupled end-to-end access sharing
+   relationship between an Authorizing Party and a Requesting Party,
+   with its primary goals being to constrain access according to the
+   Authorizing Party's access policies and to encourage the Requesting
+   Party to adhere to any obligations it consented to in the
+   authorization process by raising the consequences for doing
+   otherwise.  Following are sample use cases that explore the potential
+   differences in these obligations beyond the basic level represented
+   in the contractual framework.
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 3]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-4" id="page-4" href="#page-4" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   Person-to-self sharing  Here, Alice is both the Authorizing Party and
+      the Requesting Party.  This use case describes most types of
+      today's OAuth-mediated access, for example, when Alice introduces
+      the Klout service to her Twitter account.  She uses both services
+      herself, and wants them to communicate together on her behalf.
+      With UMA, Alice can potentially manage the entire set of such
+      access connections from a single place rather than from Twitter
+      and other online "home bases" separately.  In this circumstance,
+      it's unlikely Alice will want to impose stringent contract terms
+      on herself.
+
+   Person-to-person sharing  Here, Alice is an Authorizing Party and Bob
+      is a Requesting Party.  Today, many Web 2.0 sites offer some level
+      of selective sharing between people, but methods, strengths, and
+      interfaces are inconsistent between sites and people are unable to
+      reuse policies across sites.  Alice can share Flickr photos with
+      Bob by adding him to her Flickr friends list or family list or by
+      mailing him a special link to a photo album, or Alice can add Bob
+      as a friend on Facebook.  With UMA, Alice can craft authorization
+      policies that let Bob "qualify in" to get access to her photo
+      album and even to other resources she manages at other sites,
+      without her having to be present during this process.
+
+   Mediated person-to-organization sharing  Here, Alice is an
+      Authorizing Party, the DentalCare company is a Requesting Party,
+      and the company's office assistant Carl is a Requesting Party
+      Agent.  Alice wants to give her dentist's office, DentalCare,
+      temporary access to her calendar to make it easier to schedule a
+      series of root canal appointments.  Carl might be the actual
+      person acting on behalf of the dental practice who actually asks
+      for and views Alice's calendar.  With UMA, Alice can require Carl
+      to prove he is acting on behalf of DentalCare -- for example,
+      demonstrating control of an email address in the dentalcare.com
+      domain -- before seeing her calendar.
+
+   Autonomous person-to-organization sharing  Here, Alice is an
+      Authorizing Party and the Valley Vehicles car dealership is a
+      Requesting Party.  Alice has crafted a "personal request for
+      proposals" because she's in the market for a new car, and she's
+      willing to let car dealerships in her region of the country see
+      her request and make offers to her.  With UMA, Valley Vehicles and
+      other dealerships might use Web crawler services to go out and
+      collect requests for proposals, without human helpers, and these
+      services might have to prove in automated fashion that they
+      legitimately represent the right kind of business.  Alice can also
+      ensure each dealership agrees to her terms before seeing her
+      request for proposals.
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 4]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-5" id="page-5" href="#page-5" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+<span class="h3"><a class="selflink" name="section-1.2" href="#section-1.2">1.2</a>.  How to Use the Contractual Framework</span>
+
+   The contractual framework in <a href="#section-2">Section 2</a> is the normative portion of
+   this document.  It is intended to apply to all Subjects that take
+   part in software interactions using services that are declared to be
+   UMA-conforming.  It defines the minimum set of obligations that these
+   Subjects accept.  The Subjects can adopt additional obligations, and
+   can further refine or constrain the obligations listed here, but
+   cannot make these minimum obligations less strict.
+
+   Each clause takes the following form:
+
+   "[_Clause ID_].  When [_protocol interaction takes place_], the
+   [_obligated Subject_] gains an obligation to the [_expecting
+   Subject_] to [_behave towards it in a particular way_]."
+
+   The clause ID has the following internal structure:
+
+   "[_obligated_]-[_expecting_]-[_keyword_]"
+
+   It uses abbreviations for the obligated and expecting Subjects as
+   follows: RqP for Requesting Party, RSO for Resource Server Operator,
+   ASO for Authorization Server Operator, and AzP for Authorizing Party.
+   Clauses are generally followed by non-normative explanatory comments,
+   which are labeled with "Comments:", and occasionally open issues,
+   which are labeled with "Issues:".  The latter are meant to be
+   resolved and removed before final publication.
+
+   Specific obligations come as a result of precise protocol
+   interactions, so that at a moment in time, any one Subject may not
+   yet have taken on all of the obligations defined in the contractual
+   framework as belonging to that Subject.  By analogy, if Alice were to
+   visit a website that imposes terms of service on the site's users,
+   but it requires users to consent actively by clicking on an "I Agree"
+   button, Alice would take on terms-of-service obligations only after
+   she clicks on the button.
+
+   Following are the key UMA interactions that result in obligations,
+   with specific cross-references into the [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>] specification.  A
+   non-normative visual correlation of interactions to binding
+   obligations can be found at [<a href="#ref-UMAFAQ-swim">UMAFAQ-swim</a>].  (Lowercase versions of
+   names are references to constructs in the technical specification
+   versus this document.)
+
+   o  An authorization server issues a protection API token (PAT) to a
+      resource server: <a href="#section-1.3.1">Section 1.3.1</a>.
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 5]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-6" id="page-6" href="#page-6" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   o  An authorization server issues an authorization API token (AAT) to
+      a client: <a href="#section-1.3.1">Section 1.3.1</a>.
+
+   o  An authorization server issues a requesting party token (RPT) to a
+      client: <a href="#section-3.4.1">Section 3.4.1</a>.
+
+   o  An authorization server responds positively to a client's
+      authorization request: <a href="#section-3.4.2">Section 3.4.2</a>.
+
+   o  A resource server determines the status of an RPT: <a href="#section-3.3">Section 3.3</a>.
+
+   o  A resource server registers a client-requested permission:
+      <a href="#section-3.2">Section 3.2</a>.
+
+   o  A requesting party supplies claims to an authorization server:
+      <a href="#section-3.5">Section 3.5</a>.
+
+   o  A resource server responds to a client's request for access:
+      Sections <a href="#section-3.1.1">3.1.1</a> and <a href="#section-3.1.2">3.1.2</a>.
+
+   o  A client successfully receives access: <a href="#section-3.1.2">Section 3.1.2</a>.
+
+<span class="h3"><a class="selflink" name="section-1.3" href="#section-1.3">1.3</a>.  Obligations Not in the Scope of the Contractual Framework</span>
+
+   Of the Subject types defined and discussed in this document, some --
+   Requesting Party Agents and Client Operators -- have no UMA-dictated
+   obligations, though they might have obligations as part of
+   contractual agreements with other UMA-related Subjects, for example,
+   pairwise contracts or membership in trust frameworks.  Additionally,
+   pairs or groups of Subjects that do have obligations imposed by the
+   contractual framework might have additional obligations among
+   themselves beyond those in the framework.  Following are some typical
+   examples:
+
+   o  When a Resource Owner registers for an account at a Resource
+      Server, the Authorizing Party might gain an obligation to the
+      Resource Server Operator to adhere to the Resource Server
+      Operator's terms of service.
+
+   o  When a Client registers with an Authorization Server for OAuth
+      client credentials (for example, through an explicit approval
+      process or through a passive "API-wrap" process), the Client
+      Operator might gain an obligation to the Authorization Server
+      Operator (apart from any particular Requesting Party's usage of
+      that Client) to adhere to the Authorization Server Operator's
+      terms of service for API clients.
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 6]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-7" id="page-7" href="#page-7" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   o  When a Subject becomes a Requesting Party Agent for a Requesting
+      Party (for example, through an employment agreement), the
+      Requesting Party Agent might gain an obligation to adhere to any
+      agent agreements in place in the Subject's UMA-related
+      interactions performed on behalf of the Requesting Party.
+
+   o  When a Requesting Party contracts with a Client Operator to engage
+      in UMA-related interactions on the Requesting Party's behalf, the
+      Client Operator might gain an obligation to adhere to the terms of
+      that contract.  For example, a car dealership may contract out to
+      use a cloud service that crawls the Web looking for personal RFPs
+      that meet the dealership's criteria, and want to impose
+      confidentiality requirements.
+
+   o  When a Client accesses a protected resource at a Resource Server,
+      the Resource Server Operator might gain an obligation to the
+      Client Operator to be trustworthy as a source of the expected
+      data.  For example, in a scenario where the Requesting Party is
+      also the Authorizing Party and is trying to fill in an online loan
+      application through an online financial service (the Client),
+      where the Resource Server Operator provides credit risk data about
+      the Authorizing User, the Client Operator will want to
+      authenticate the Resource Server service in some fashion.
+
+<span class="h2"><a class="selflink" name="section-2" href="#section-2">2</a>.  Binding Obligations on UMA Participants</span>
+
+   This section constitutes a normative framework that defines the
+   minimum obligations gained by parties that operate and use software
+   programs and services that the operators declare to be UMA-
+   conforming.  The framework consists of clauses, where each subsection
+   with content is a clause.
+
+<span class="h3"><a class="selflink" name="section-2.1" href="#section-2.1">2.1</a>.  Terminology</span>
+
+<span class="h4"><a class="selflink" name="section-2.1.1" href="#section-2.1.1">2.1.1</a>.  Terms</span>
+
+   This framework uses the following terms.  Where terms are used
+   without capitalization and are not otherwise defined in the
+   [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>], they are used in their normal sense.
+
+   Individual
+         A natural person (that is, a human being) with the capacity to
+         take on contractual duties and obligations as a participant in
+         an UMA interaction.
+
+   Non-Person Entity (NPE)
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 7]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-8" id="page-8" href="#page-8" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+         A legal person (such as a corporation) with the capacity to
+         take on contractual duties and obligations as a participant in
+         an UMA interaction.
+
+   Subject
+         An Individual or NPE.  Subjects play various roles in achieving
+         and seeking user-managed access, and the same Subject might
+         serve in multiple contractual roles.
+
+   Conformance
+         Claimed adherence of a running software program or service to
+         the requirements of one or more of the roles "authorization
+         server", "resource server", or "client", as defined in
+         [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>].  Software components play various roles in
+         participating in the technical interactions necessary to
+         achieve and seek user-managed access, and the same software
+         component might serve in multiple technical roles.
+
+   Authorizing Party
+         A Subject that fills the "resource owner" role as defined in
+         [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>], using and configuring software services that
+         variously fill the "authorization server" and "resource server"
+         roles.  This Subject is the "user" in "User-Managed Access";
+         UMA's first priority is to enable Individuals to serve in the
+         Authorizing Party role, though NPEs can serve in this role as
+         well.
+
+   Authorization Server
+         A software service that fills the "authorization server" role
+         as defined in [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>].
+
+   Authorization Server Operator
+         A Subject responsible for running and operating an
+         Authorization Server.
+
+   Resource Server
+         A software service that fills the "resource server" role as
+         defined in [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>].
+
+   Resource Server Operator
+         A Subject responsible for running and operating a Resource
+         Server.
+
+   Client
+         A software application or service that fills the "client" role
+         as defined in [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>].
+
+   Client Operator
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 8]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-9" id="page-9" href="#page-9" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+         A Subject responsible for running and operating a Client.
+
+   Requesting Party
+         A Subject that uses a Client to seek access to a protected
+         resource.  This Subject may be an Individual or an NPE.  The
+         Requesting Party and the Authorizing Party may be the same
+         Subject or different Subjects.
+
+   Requesting Party Agent
+         A Subject using a Client to seek access to a protected resource
+         on behalf of a Requesting Party.  Typically this Subject is an
+         Individual acting on behalf of an NPE.
+
+   Comments: The [<a href="#ref-UETA" title="&quot;Uniform Electronic Transactions Act&quot;">UETA</a>] defines two terms that are particularly relevant
+   to understanding the interactions among UMA participants:
+
+   o  "'Automated transaction' means a transaction conducted or
+      performed, in whole or in part, by electronic means or electronic
+      records, in which the acts or records of one or both parties are
+      not reviewed by an individual in the ordinary course in forming a
+      contract, performing under an existing contract, or fulfilling an
+      obligation required by the transaction."
+
+   o  "'Electronic agent' means a computer program or an electronic or
+      other automated means used independently to initiate an action or
+      respond to electronic records or performances in whole or in part,
+      without review or action by an individual."
+
+   Where a Client is used by a human Requesting Party or a human
+   Requesting Party Agent, at times human-computer interaction (HCI)
+   will be required, but otherwise the access-attempt transaction is
+   likely to be fully automatic from the perspective of the "requesting
+   side".  Furthermore, where the Authorizing Party and the Requesting
+   Party are the same natural person, or where the Authorizing Party has
+   set a policy that requires real-time approval through some out-of-
+   band method, this person can expect to engage in HCI.  Otherwise the
+   access-attempt transaction is likely to be fully automatic from the
+   perspective of the "authorizing side" because the access attempt is
+   made without any requirement for the Authorizing Party to be present
+   at run time.
+
+   The National Strategy for Trusted Identities in Cyberspace [<a href="#ref-NSTIC" title="&quot;National Strategy for Trusted Identities in Cyberspace&quot;">NSTIC</a>]
+   defines some terms similar to those defined here:
+
+   o  "An individual is a person engaged in an online transaction.
+      Individuals are the first priority of the Strategy."
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014                [Page 9]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-10" id="page-10" href="#page-10" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   o  "A non-person entity (NPE) may also require authentication in the
+      Identity Ecosystem.  NPEs can be organizations, hardware,
+      networks, software, or services and are treated much like
+      individuals within the Identity Ecosystem.  NPEs may engage in or
+      support a transaction."
+
+   o  "The subject of a transaction may be an individual or an NPE."
+
+   UMA shares with NSTIC a priority to enable and empower individual
+   people in the context of their online interactions.  Note that this
+   framework uses the terms Individual, NPE, and Subject exclusively for
+   parties that have the capacity to take on contractual obligations,
+   distinguishing them "from hardware, networks, software, or services",
+   which do not have this capacity.
+
+<span class="h4"><a class="selflink" name="section-2.1.2" href="#section-2.1.2">2.1.2</a>.  Abbreviations</span>
+
+   This framework uses the following abbreviations.
+
+   UMA  User-Managed Access, the interoperability protocol defined by in
+      [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>] and the other specifications it includes normatively by
+      reference.
+
+   API  Application programming interface.
+
+   PAT  Protection API token, as defined iin [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>].
+
+   AAT  Authorization API token, as defined in [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>].
+
+   RPT  Requesting party token, as defined in [<a href="#ref-UMAcore" title="&quot;User-Managed Access (UMA) Profile of OAuth 2.0&quot;">UMAcore</a>].
+
+   Comments: Tokens are critical to managing authorization and auditing
+   of resource access.  <a href="#section-1.3">Section 1.3</a> is recommended reading for
+   understanding what the various tokens represent and how they are
+   issued and used.  The RPT, in particular, has a definition that can
+   vary depending on the RPT profile in use; thus, any obligations in
+   this framework that depend on an RPT profile specify it by name.
+
+<span class="h3"><a class="selflink" name="section-2.2" href="#section-2.2">2.2</a>.  Obligations of the Requesting Party</span>
+
+<span class="h4"><a class="selflink" name="section-2.2.1" href="#section-2.2.1">2.2.1</a>.  Requesting Party-Authorizing Party: Adhere-to-Terms</span>
+
+   When the Client successfully gains access from a Resource Server to a
+   protected resource by wielding a valid "bearer" RPT associated with
+   at least one currently valid permission for the type of access
+   sought, the Requesting Party using that Client gains an obligation to
+   the Authorizing Party to adhere to any terms it agreed to in order to
+   gain the permission.
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014               [Page 10]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-11" id="page-11" href="#page-11" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   Comments: This key obligation enables the end-to-end access
+   authorization agreement that UMA exists to forge.  At a previous
+   stage, the Requesting Party asked for a relevant permission from the
+   Authorization Server and might have had to provide claims of a
+   promissory nature.  Accepting access to the protected resource binds
+   the Requesting Party to any terms it agreed to using the claims
+   mechanism, for example, agreeing only to read the resource rather
+   than modifying it, or forbearing from selling the resource data to
+   someone else.
+
+   Issues: Note that the obligation goes into effect the first time a
+   Client gains access under the power of a "currently valid
+   permission".  If there was more than one valid permission attached to
+   different sets of promises, if a secure record was not kept by the
+   Resource Server and/or Authorization Server of which permission was
+   used for granting access, ambiguity is introduced.  Defining and
+   using RPT profiles other than the "bearer" profile might lessen the
+   potential ambiguity.
+
+<span class="h4"><a class="selflink" name="section-2.2.2" href="#section-2.2.2">2.2.2</a>.  Requesting Party-Authorizing Party: Make-Factual-Representations</span>
+
+   When the Requesting Party provides, or facilitates the sourcing of,
+   claims to an Authorization Server in a claims-gathering flow, the
+   Requesting Party gains an obligation to the Authorizing Party to
+   stand behind any factual representations it makes in order to gain
+   the permission, to the best of its knowledge at the time it makes
+   them.
+
+   Comments: This obligation is gained during the providing of actual
+   claims, rather than at the time of AAT issuance or protected resource
+   access, because factual claims might age and expire.  Where the
+   Requesting Party supplies or sources claims in a manner that can be
+   verified by the Authorization Server, the risk imposed by this need
+   for "trust" can be reduced.  Note that UMA defines an optional OpenID
+   Connect claim profile that provides one way to collect trusted claims
+   from third-party claim providers.
+
+<span class="h4"><a class="selflink" name="section-2.2.3" href="#section-2.2.3">2.2.3</a>.  Requesting Party-Authorization Server Operator: Supply-Truthful-</span>
+<span class="h4">        Claims</span>
+
+   When the Authorization Server issues an AAT to a Client and for as
+   long as the AAT is valid, the Requesting Party using that Client
+   gains an obligation to the Authorization Server Operator to supply or
+   facilitate access to truthful claims required for access
+   authorization at this AM, when it chooses to supply them, to the best
+   of its knowledge at the time it supplies them.
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014               [Page 11]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-12" id="page-12" href="#page-12" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   Comments: At a later stage, the Requesting Party might be asked to
+   provide claims to support authorization processes at this
+   Authorization Server for accessing _all_ resources protected by this
+   Authorization Server, managed by any Authorizing Parties, at any
+   Resource Servers.  The Requesting Party's responsibility to act in
+   good faith in interacting with this Authorization Server begins now
+   because factual claims it supplies could be reused for more than one
+   access-sharing relationship.  This obligation can be removed through
+   AAT revocation.
+
+<span class="h4"><a class="selflink" name="section-2.2.4" href="#section-2.2.4">2.2.4</a>.  Requesting Party-Resource Server Operator: Is-Legitimate-Bearer</span>
+
+   When the Authorization Server issues an RPT to a Client and for as
+   long as the RPT is valid, the Requesting Party using that Client
+   gains an obligation to the Resource Server Operator to represent the
+   legitimate bearer of the RPT or its authorized representative, and
+   not to allow others to impersonate the Requesting Party.
+
+   Comments: In the case where the "bearer" RPT profile or any other
+   bearer-style RPT profile is used, the token may not be bound in any
+   technically confirmable way to the specific client and requesting
+   party it applies to.  Defining and using different UMA token profiles
+   can mitigate the risk of failure or malice on the Requesting Party's
+   part.  The "authorized representative" phrase is intended to clear
+   the way for token-chaining profiles or similar.
+
+<span class="h3"><a class="selflink" name="section-2.3" href="#section-2.3">2.3</a>.  Obligations of the Resource Server Operator</span>
+
+<span class="h4"><a class="selflink" name="section-2.3.1" href="#section-2.3.1">2.3.1</a>.  Resource Server Operator-Authorizing Party: Delegate-Protection</span>
+
+   When the Authorization Server issues a PAT to a Resource Server and
+   as long as the PAT is valid, the Resource Server Operator gains an
+   obligation to the Authorizing Party to delegate protection services
+   to the Authorization Server Operator for the set of protectable
+   resources for which it represents this capability to the Authorizing
+   Party, and to respect the authorization data that the Authorization
+   Server has associated with an RPT when the Resource Server
+   subsequently allows or disallows access by the Client that presented
+   that RPT.
+
+   Comments: Once the Authorization Server Operator becomes the
+   Authorizing Party's authorization proxy, it begins relying on the
+   Resource Server Operator in other, more specific ways.  The Resource
+   Server has the opportunity to inspect AM-issued permissions or take
+   other actions that delegate protection responsibility to the
+   Authorization Server at a later stage, but its responsibility for
+   respecting them begins now.  The specific protection services made
+   available to the Resource Server by the Authorization Server differ
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014               [Page 12]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-13" id="page-13" href="#page-13" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   depending on the RPT profile in use.  This obligation can be removed
+   through PAT revocation.
+
+<span class="h4"><a class="selflink" name="section-2.3.2" href="#section-2.3.2">2.3.2</a>.  Resource Server Operator-Authorization Server Operator:</span>
+<span class="h4">        Register-Accurately-and-Timely</span>
+
+   When the Authorization Server issues a PAT to the Resource Server and
+   as long as the PAT is valid, the Resource Server Operator gains an
+   obligation to the Authorization Server Operator to register resource
+   set descriptions accurately and timely according to the Authorizing
+   Party's expressed instructions for protection.
+
+   Comments: At a later stage, the Resource Server has the opportunity
+   to register resource sets, but its responsibility for performing this
+   task begins now.  The Resource Server Operator may have contracted
+   with the Authorizing Party for service-level agreements to respond
+   specifically to timeliness needs and so on.  This obligation can be
+   removed through PAT revocation.
+
+<span class="h4"><a class="selflink" name="section-2.3.3" href="#section-2.3.3">2.3.3</a>.  Resource Server Operator-Authorization Server Operator: Respect-</span>
+<span class="h4">        Permissions</span>
+
+   When the Resource Server successfully introspects a "bearer" RPT, the
+   Resource Server Operator gains an obligation to the Authorization
+   Server Operator to respect the permissions that the Authorization
+   Server has associated with the RPT when the Resource Server
+   subsequently allows or disallows access by the Client that presented
+   that RPT.
+
+   Comments: The Resource Server Operator, as a Subject that is
+   otherwise potentially not obligated to the Authorization Server
+   Operator, carries a great deal of responsibility here not to allow
+   access where the Authorization Server has not granted permission and
+   to make every effort to grant access where the Authorization Server
+   has granted permission.  Its interpretation of scopes and permissions
+   is not directly auditable by the Authorization Server.  Further,
+   issues can arise from the skew between permission validity periods
+   and actual access.  Defining and using different RPT profiles can
+   mitigate the risk of failure or malice on the Resource Server
+   Operator's part.
+
+<span class="h4"><a class="selflink" name="section-2.3.4" href="#section-2.3.4">2.3.4</a>.  Resource Server Operator-Requesting Party: Give-Accurate-Access</span>
+
+   When the Resource Server responds in any fashion to a Client's access
+   request, the Resource Server Operator gains an obligation to the
+   Requesting Party to give accurate access to the protected resource
+   according to whether the Requesting Party has permission to do so.
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014               [Page 13]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-14" id="page-14" href="#page-14" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   Comments: The Resource Server Operator, as a Subject that is
+   otherwise potentially not obligated to the Authorization Server
+   Operator, carries a great deal of responsibility here to make every
+   effort to grant access where the Authorization Server has associated
+   authorization data to guide access.  Its interpretation of scopes and
+   permissions, particularly in the case where the RPT presented by the
+   Client uses the "bearer" RPT profile, is not entirely auditable by
+   the requester or Authorization Server.  Further, issues can arise
+   from the skew between permission validity periods and actual access.
+   Defining and using different RPT profiles can mitigate the risk of
+   failure on the Resource Server Operator's part.
+
+   Issues: The relying party traditionally always has the right of
+   refusal.  The resource server may have additional authorization
+   context available only to it that suggests it should not grant
+   access, for example.  Should this obligation be struck?
+
+<span class="h3"><a class="selflink" name="section-2.4" href="#section-2.4">2.4</a>.  Obligations of the Authorization Server Operator</span>
+
+<span class="h4"><a class="selflink" name="section-2.4.1" href="#section-2.4.1">2.4.1</a>.  Authorization Server Operator-Authorizing Party: Follow-</span>
+<span class="h4">        Policies-Accurately-and-Timely</span>
+
+   When the Authorization Server issues a PAT to the Resource Server and
+   as long as the PAT is valid, the Authorization Server Operator gains
+   an obligation to the Authorizing Party to adhere to the Authorizing
+   Party's policies accurately and timely in granting permissions.
+
+   Comments: At a later stage, the Authorization Server will require the
+   Resource Server to present the PAT whenever it uses the Authorization
+   Server's protection API on behalf of this Authorizing Party.  The
+   Authorization Server Operator may have contracted with the
+   Authorizing Party for service-level agreements to respond
+   specifically to timeliness needs and so on.  This obligation can be
+   removed through PAT revocation.
+
+<span class="h4"><a class="selflink" name="section-2.4.2" href="#section-2.4.2">2.4.2</a>.  Authorization Server Operator-Resource Server Operator: Follow-</span>
+<span class="h4">        Policies-Accurately-and-Timely</span>
+
+   When the Resource Server registers a requested permission at the
+   Authorization Server, the Authorization Server Operator gains an
+   obligation to the Resource Server Operator to adhere to the
+   Authorizing Party's authorization policies accurately and timely in
+   associating authorization data with RPTs presented with the
+   registered permission's ticket.
+
+   Comments: At a later stage, when a Client approaches the
+   Authorization Server presenting an RPT and a permission ticket, the
+   Authorization Server matches Authorizing Party policies to the
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014               [Page 14]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-15" id="page-15" href="#page-15" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   requested permission to drive any requests for claims and ultimate
+   authorization processes, but its responsibility for performing this
+   task begins now.
+
+<span class="h4"><a class="selflink" name="section-2.4.3" href="#section-2.4.3">2.4.3</a>.  Authorization Server Operator-Requesting Party: Request-Limited-</span>
+<span class="h4">        Claims</span>
+
+   When the Authorization Server issues an AAT to a Client and as long
+   as the AAT is valid, the Authorization Server Operator gains an
+   obligation to the Requesting Party to request only claims that
+   support the purpose of satisfying an Authorizing Party's policy.
+
+   Comments: At a later stage, the Authorization Server might ask the
+   Requesting Party to provide claims for specific permission purposes
+   at multiple Resource Servers and/or for multiple Authorizing Parties,
+   but its responsibility begins now.  This obligation can be removed
+   through AAT revocation.
+
+<span class="h3"><a class="selflink" name="section-2.5" href="#section-2.5">2.5</a>.  Obligations of the Authorizing Party</span>
+
+<span class="h4"><a class="selflink" name="section-2.5.1" href="#section-2.5.1">2.5.1</a>.  Authorizing Party-Requesting Party: Adhere-to-Terms</span>
+
+   When the Authorization Server responds positively to a Client's
+   request for authorization, the Authorizing Party gains an obligation
+   to the Requesting Party using that Client to adhere to the terms
+   offered to and accepted by the Requesting Party in the form of
+   requests for claims driven by the Authorizing Party's policy at the
+   Authorization Server.
+
+   Comments: For example, the Authorizing User cannot subsequently
+   protest or sue the Requesting Party for resale of the user's data if
+   this was allowed by the terms of access authorization.
+
+<span class="h4"><a class="selflink" name="section-2.5.2" href="#section-2.5.2">2.5.2</a>.  Authorizing Party-Authorization Server Operator: Introduce-</span>
+<span class="h4">        Resource-Server</span>
+
+   When the Authorization Server issues a PAT to a Resource Server and
+   as long as the PAT is valid, the Authorizing Party gains an
+   obligation to the Authorization Server Operator to introduce the
+   desired Resource Server to this Authorization Server in outsourcing
+   protection of this Resource Server's resources.
+
+   Comments: How the Resource Server learned of the Authorization
+   Server's location is out of band for UMA; it is the Authorizing
+   Party's responsibility to check that it has been redirected to an
+   acceptable Authorization Server before the Authorization Server
+   successfully issues the PAT.  This obligation can be removed through
+   PAT revocation.
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014               [Page 15]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-16" id="page-16" href="#page-16" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+<span class="h4"><a class="selflink" name="section-2.5.3" href="#section-2.5.3">2.5.3</a>.  Authorizing Party-Resource Server Operator: Introduce-</span>
+<span class="h4">        Authorization-Server</span>
+
+   When the Authorization Server issues a PAT to a Resource Server and
+   as long as the PAT is valid, the Authorizing Party gains an
+   obligation to the Resource Server Operator to introduce the desired
+   Authorization Server to this Resource Server in outsourcing
+   protection of this Resource Server's resources.
+
+   Comments: Once the Authorization Server Operator becomes the
+   Authorizing Party's authorization proxy, the Resource Server Operator
+   begins relying on it in other, more specific ways.  How the
+   Authorizing Party indicated the desired Authorization Server to the
+   host is out of band for UMA; it is the Authorizing Party's
+   responsibility to check that it has been redirected to an acceptable
+   Authorization Server before the Authorization Server successfully
+   issues the PAT.  This obligation can be removed through PAT
+   revocation.
+
+<span class="h2"><a class="selflink" name="section-3" href="#section-3">3</a>.  Acknowledgments</span>
+
+   The current editor of this document is Eve Maler of XMLgrrl.com.  The
+   following people are co-authors:
+
+   o  Domenico Catalano, Oracle Corp.
+
+   o  Kevin Cox, Edentiti
+
+   o  Sal D'Agostino, IDmachines
+
+   o  Susan Morrow, Avoco Secure
+
+   o  Dazza Greenwood, Civics.com
+
+   Additional contributors to this document include the Kantara UMA Work
+   Group participants, a list of whom can be found at [<a href="#ref-UMAnitarians">UMAnitarians</a>].
+   The co-authors and contributors thank Scott David, Dazza Greenwood,
+   and Tom Smedinghoff for offering their legal expertise and insight in
+   the preparation of this document.
+
+<span class="h2"><a class="selflink" name="section-4" href="#section-4">4</a>.  References</span>
+
+<span class="h3"><a class="selflink" name="section-4.1" href="#section-4.1">4.1</a>.  Normative References</span>
+
+   [<a name="ref-RFC2119" id="ref-RFC2119">RFC2119</a>]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", <a href="./bcp14">BCP 14</a>, <a href="./rfc2119">RFC 2119</a>, March 1997.
+
+
+
+
+
+<span class="grey">Maler &amp; Hardjono        Expires January 31, 2014               [Page 16]</span>
+</pre><!--NewPage--><pre class='newpage'><a name="page-17" id="page-17" href="#page-17" class="invisible"> </a>
+<span class="grey">Internet-Draft           UMA Binding Obligations               July 2013</span>
+
+
+   [<a name="ref-UMAcore" id="ref-UMAcore">UMAcore</a>]  Hardjono, T., "User-Managed Access (UMA) Profile of OAuth
+              2.0", December 2012,
+              &lt;<a href="http://tools.ietf.org/html/draft-hardjono-oauth-umacore">http://tools.ietf.org/html/draft-hardjono-oauth-umacore</a>&gt;.
+
+<span class="h3"><a class="selflink" name="section-4.2" href="#section-4.2">4.2</a>.  Informative References</span>
+
+   [<a name="ref-NSTIC" id="ref-NSTIC">NSTIC</a>]    US Federal Government, "National Strategy for Trusted
+              Identities in Cyberspace", April 2011, &lt;<a href="http://www.whitehouse.gov/sites/default/files/rss_viewer/NSTICstrategy_041511.pdf">http://</a>
+              <a href="http://www.whitehouse.gov/sites/default/files/rss_viewer/NSTICstrategy_041511.pdf">www.whitehouse.gov/sites/default/files/rss_viewer/</a>
+              <a href="http://www.whitehouse.gov/sites/default/files/rss_viewer/NSTICstrategy_041511.pdf">NSTICstrategy_041511.pdf</a>&gt;.
+
+   [<a name="ref-UETA" id="ref-UETA">UETA</a>]     Smedinghoff, T., "Uniform Electronic Transactions Act",
+              1999, &lt;<a href="http://www.law.upenn.edu/bll/archives/ulc/fnact99/1990s/ueta99.htm">http://www.law.upenn.edu/bll/archives/ulc/fnact99/</a>
+              <a href="http://www.law.upenn.edu/bll/archives/ulc/fnact99/1990s/ueta99.htm">1990s/ueta99.htm</a>&gt;.
+
+   [<a name="ref-UMAFAQ-swim" id="ref-UMAFAQ-swim">UMAFAQ-swim</a>]
+              US Federal Government, "UMA Frequently Asked Questions:
+              What is the UMA protocol flow?", January 2013, &lt;http://
+              kantarainitiative.org/confluence/display/uma/UMA+FAQ
+              #UMAFAQ-WhatistheUMAprotocolflow&gt;.
+
+   [<a name="ref-UMAnitarians" id="ref-UMAnitarians">UMAnitarians</a>]
+              Maler, E., "UMA Participant Roster", 2012, &lt;http://
+              kantarainitiative.org/confluence/display/uma/
+              Participant+Roster&gt;.
+
+<span class="h2"><a class="selflink" name="appendix-A" href="#appendix-A">Appendix A</a>.  Document History</span>
+
+   NOTE: To be removed by RFC editor before publication as an RFC.
+
+Authors' Addresses
+
+   Eve Maler (editor)
+   XMLgrrl.com
+
+   Email: eve@xmlgrrl.com
+
+
+   Thomas Hardjono
+   MIT
+
+   Email: hardjono@mit.edu
+
+
+
+
+
+
+
+
+
+Maler &amp; Hardjono        Expires January 31, 2014               [Page 17]
+
+</pre><br />
+<span class="noprint"><small><small>Html markup produced by rfcmarkup 1.104, available from
+<a href="http://tools.ietf.org/tools/rfcmarkup/">http://tools.ietf.org/tools/rfcmarkup/</a>
+</small></small></span>
+</body></html>
